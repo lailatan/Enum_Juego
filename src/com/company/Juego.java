@@ -6,7 +6,8 @@ public class Juego {
     private List<Personaje> personajes;
     private Dificultad dificultad;
     private Integer cantidadJugadores;
-    private Integer topeCasillas=101;
+    private String ganador="";
+    private Integer movidasTotalesGanador=0;
 
     public Juego(List<Personaje> personajes, Dificultad dificultad) {
         this.personajes = personajes;
@@ -25,11 +26,24 @@ public class Juego {
         return dificultad;
     }
 
+    public Integer getCantidadJugadores() {
+        return cantidadJugadores;
+    }
 
-    public String Jugar() {
+    public String getGanador() {
+        return ganador;
+    }
+
+    public Integer getMovidasTotalesGanador() {
+        return movidasTotalesGanador;
+    }
+
+    public void jugar() {
         Boolean hayUnGanador=false;
-        String ganador = "";
+        ganador = "";
+        movidasTotalesGanador=0;
         while (!hayUnGanador){
+            movidasTotalesGanador++;
             for (Personaje p:personajes) {
                 hayUnGanador = p.jugar();
                 if (hayUnGanador) {
@@ -38,10 +52,22 @@ public class Juego {
                 }
             }
         }
-        return ganador;
     }
 
 
-    public void MostrarTablaResultados() {
+    public void mostrarTablaResultados() {
+        Boolean finPartida=false;
+        for (Personaje p :personajes)
+            System.out.printf("%-20s",p.getNombre());
+        System.out.println();
+        for (int i=0;i<movidasTotalesGanador;i++){
+            for (Personaje p :personajes) {
+                System.out.printf("%-20s", p.getJugadas().get(i));
+                if (p.getNombre()==ganador && i==movidasTotalesGanador-1) break;;
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("GANADOR= " + ganador + " en " + movidasTotalesGanador + " movidas");
     }
 }

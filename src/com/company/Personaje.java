@@ -46,8 +46,8 @@ public class Personaje {
     public Boolean jugar(){
         Random random = new Random();
         int movimientos = random.nextInt(4)+1;
-        jugadas.add(movimientos);
         posicion=(meta==0)?posicion-movimientos:posicion+movimientos;
+        jugadas.add(posicion);
         return llegoALaMeta();
     }
 }

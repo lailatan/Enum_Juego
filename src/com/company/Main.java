@@ -36,8 +36,7 @@ public class Main {
 
         Juego juego = new Juego(jugadores,Dificultad.MEDIA);
 
-        String ganador= juego.Jugar();
-        System.out.println(ganador);
-        juego.MostrarTablaResultados();
+        juego.jugar();
+        juego.mostrarTablaResultados();
     }
 }
