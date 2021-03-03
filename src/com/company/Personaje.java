@@ -40,7 +40,7 @@ public class Personaje {
     }
 
     public Boolean llegoALaMeta(){
-        return (meta==0)?posicion<meta:posicion>meta;
+        return (meta==0)?posicion<=meta:posicion>=meta;
     }
 
     public Boolean jugar(){
