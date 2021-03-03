@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Personaje {
+    Random random = new Random();
     private String nombre;
     private Equipo color;
     private List<Integer> jugadas;
@@ -46,7 +47,6 @@ public class Personaje {
     }
 
     public Boolean jugar(){
-        Random random = new Random();
         int movimientos = random.nextInt(4)+1;
         posicion=(meta==0)?posicion-movimientos:posicion+movimientos;
         jugadas.add(posicion);

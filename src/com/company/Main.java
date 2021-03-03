@@ -28,14 +28,8 @@ Se debe informar el paso a paso y al finalizar, una tabla de posiciones, ordenad
 public class Main {
 
     public static void main(String[] args) {
-        List<Personaje> jugadores = new ArrayList<>();
-        jugadores.add(new Personaje("Jugador 1",Equipo.AMARILLO));
-        jugadores.add(new Personaje("Jugador 2",Equipo.NEGRO));
-        jugadores.add(new Personaje("Jugador 3",Equipo.ROJO));
-        jugadores.add(new Personaje("Jugador 4",Equipo.AZUL));
 
-        Juego juego = new Juego(jugadores,Dificultad.MEDIA);
-
+        Juego juego = new Juego(Dificultad.MEDIA);
         juego.jugar();
         juego.mostrarTablaResultados();
     }
