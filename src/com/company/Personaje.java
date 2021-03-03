@@ -10,10 +10,12 @@ public class Personaje {
     private List<Integer> jugadas;
     private Integer posicion;
     private Integer meta;
+    private Integer movimientos;
 
     public Personaje(String nombre, Equipo color) {
         this.nombre = nombre;
         this.color = color;
+        movimientos=0;
         jugadas = new ArrayList<>();
         switch (color){
             case AZUL: case ROJO:
@@ -49,5 +51,10 @@ public class Personaje {
         posicion=(meta==0)?posicion-movimientos:posicion+movimientos;
         jugadas.add(posicion);
         return llegoALaMeta();
+    }
+
+    public Integer faltaParaLaMeta(){
+        if (llegoALaMeta()) return 0;
+        else return Math.abs(meta-posicion);
     }
 }

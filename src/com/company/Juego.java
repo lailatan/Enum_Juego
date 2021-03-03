@@ -56,7 +56,6 @@ public class Juego {
 
 
     public void mostrarTablaResultados() {
-        Boolean finPartida=false;
         for (Personaje p :personajes)
             System.out.printf("%-20s",p.getNombre());
         System.out.println();
@@ -68,6 +67,14 @@ public class Juego {
             System.out.println();
         }
         System.out.println();
+
+        mostrarRanking();
+    }
+
+    private void mostrarRanking() {
         System.out.println("GANADOR= " + ganador + " en " + movidasTotalesGanador + " movidas");
+        System.out.println("");
+        for (Personaje p :personajes)
+            System.out.println(p.getNombre() + " " + p.getColor() + " " + p.faltaParaLaMeta());
     }
 }
